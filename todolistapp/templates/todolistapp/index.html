@@ -5,9 +5,16 @@
             {%if to.complete == True %}
             <p> <strike> {{to.text}} </strike></p>
             {%else%}
-            {{to.text}}
+            <a href="{% url 'complete' to.id %}">{{to.text}}</a>
             {% endif %}
         </li>
     </ul>
     {% endfor %}
+    <form action={% url 'add' %} method="POST">
+        {% csrf_token %}
+         {{form.text}}
+        <button type="submit" url=>Add</button>
+    </form>   
+    <a href="{% url 'delete'%}"><button>Delete All</button></a> 
+    <a href="{% url 'delcomp'%}"><button>Delete Complete</button></a> 
 </html>
