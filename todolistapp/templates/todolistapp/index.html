@@ -1,0 +1,13 @@
+<html>
+    {% for to in todo %}
+    <ul>
+        <li>
+            {%if to.complete == True %}
+            <p> <strike> {{to.text}} </strike></p>
+            {%else%}
+            {{to.text}}
+            {% endif %}
+        </li>
+    </ul>
+    {% endfor %}
+</html>
